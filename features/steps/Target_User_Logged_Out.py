@@ -1,17 +1,17 @@
 from selenium.webdriver.common.by import By
-from behave import given, when, then
+from behave import when, then
 from time import sleep
 
 
-@given('Open Target Main Page')
-def open_target(context):
-    context.driver.get('https://www.target.com')
-    sleep(5)
+# @given('Open Target Main Page')
+# def open_target(context):
+#     context.driver.get('https://www.target.com')
+#     sleep(5)
 
 
 @when('Click on Sign-In icon')
 def sign_in_page(context):
-    context.driver.find_element(By.XPATH, "//use[@href='/icons/Account.svg#Account']").click()
+    context.driver.find_element(By.XPATH, "//a[@aria-label='Account, sign in']").click()
     sleep(5)
 
 
