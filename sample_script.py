@@ -30,4 +30,5 @@ driver.find_element(By.NAME, 'btnK').click()
 assert 'table'.lower() in driver.current_url.lower(), f"Expected query not in {driver.current_url.lower()}"
 print('Test Passed')
 
+sleep(20)
 driver.quit()

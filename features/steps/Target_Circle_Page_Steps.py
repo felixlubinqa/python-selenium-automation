@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from behave import Given, Then
+from behave import Given, When, Then
 from time import sleep
 
 
@@ -11,6 +11,12 @@ SEARCH_VERIFY = (By.XPATH, "//div[@class='filmstrip-with-storyblocks-ie-11-fix']
 def open_target_circle(context):
     context.driver.get('https://www.target.com/circle')
     sleep(5)
+
+#@When()
+#def xx_xx_xx)(context):
+#   context.driver.get('https://www.target.com/circle')
+#   sleep(5)
+
 
 @Then('Verify there are 10 benefit cells minimum')
 def verify_benefit_cells(context):
