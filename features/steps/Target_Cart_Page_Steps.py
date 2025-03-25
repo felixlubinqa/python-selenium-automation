@@ -1,8 +1,11 @@
-from pydoc import pager
-
+from selenium import webdriver
 from selenium.webdriver.common.by import By
-from behave import Then
-from time import sleep
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from behave import Given, When, Then
+# from time import sleep
 
 
 #@Given('')
@@ -23,10 +26,13 @@ def verify_cart_is_empty(context):
     text_to_check = "1 item"
     content = context.driver.page_source
     assert text_to_check in content, f"Text '{text_to_check}' not found on the page"
-    sleep(5)
+#    sleep(5)
 
 
 @Then('Verify “Your cart is empty” message is shown')
 def verify_cart_is_empty(context):
     context.driver.find_element(By.XPATH, "//h1[contains(@class, 'Heading')]")
-    sleep(5)
+#    sleep(5)
+
+
+#    context.driver.wait.until(EC.element_to_be_clickable((By.NAME, '')))

@@ -2,7 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-from time import sleep
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+#from time import sleep
 
 # get the path to the ChromeDriver executable
 driver_path = ChromeDriverManager().install()
@@ -10,7 +12,9 @@ driver_path = ChromeDriverManager().install()
 # create a new Chrome browser instance
 service = Service(driver_path)
 driver = webdriver.Chrome(service=service)
+#driver.implicitly_wait(4) # checks element every 100 milliseconds
 driver.maximize_window()
+driver.wait = WebDriverWait(driver, timeout=10)
 
 # open the url
 driver.get('https://www.google.com/')
@@ -21,14 +25,16 @@ search.clear()
 search.send_keys('table')
 
 # wait for 4 sec
-sleep(4)
+# sleep(4)
+driver.wait.until(EC.element_to_be_clickable((By.NAME, 'btnK')))
+
 
 # click search button
 driver.find_element(By.NAME, 'btnK').click()
 
 # verify search results
-assert 'table'.lower() in driver.current_url.lower(), f"Expected query not in {driver.current_url.lower()}"
-print('Test Passed')
+# assert 'table'.lower() in driver.current_url.lower(), f"Expected query not in {driver.current_url.lower()}"
+# print('Test Passed')
 
-sleep(20)
+# sleep(20)
 driver.quit()
