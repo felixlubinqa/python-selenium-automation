@@ -29,7 +29,7 @@ def add_to_cart(context):
 
 @When('Click on Add to cart icon on side')
 def add_to_cart_2nd_page(context):
-    context.driver.find_element(By.CSS_SELECTOR, "[id*='addToCartButtonOrTextIdFor9313']").click()
+    context.driver.find_element(By.CSS_SELECTOR, "[data-test='modal-drawer-heading']").click()
 #    sleep(5)
 
 
@@ -57,7 +57,7 @@ def verify_sign_in_page(context):
 
 @Then('Verify “Added to Cart” message is shown on side page')
 def verify_add_to_cart(context):
-    context.driver.find_element(By.CSS_SELECTOR, ".sc-cd7ce3f4-0")
+    context.driver.find_element(By.CSS_SELECTOR, "[class*='sc-cd7ce3f4-0']")
 #    sleep(5)
 
 #    context.driver.wait.until(EC.element_to_be_clickable((By.NAME, '')))
