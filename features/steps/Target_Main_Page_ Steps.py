@@ -5,13 +5,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from behave import Given, When, Then
-# from time import sleep
-
+from time import sleep
 
 
 @Given('Open Target Main Page')
 def open_target(context):
-    context.driver.get('https://www.target.com')
+    context.app.main_page.open_main_page()
+#    context.driver.get('https://www.target.com')
 #    sleep(5)
 
 

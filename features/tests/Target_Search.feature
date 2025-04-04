@@ -5,5 +5,6 @@ Feature: Target Search Test Cases
   Scenario: User can search for a product on Target.com
     # Enter steps here
     Given Open Target Main Page
-    When Click on cart icon
-    Then Verify “Your cart is empty” message is shown
+    When Input {search_word} into search field
+    Then Verify correct search results shown for {expected_text}
+
