@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from behave import Given, When, Then
-# from time import sleep
+from time import sleep
 
 
 #@Given('')
@@ -21,7 +21,7 @@ from behave import Given, When, Then
 #
 #
 @Then('Verify item added to cart')
-def verify_cart_is_empty(context):
+def verify_cart_function(context):
     context.driver.find_element(By.CSS_SELECTOR, ".sc-93ec7147-3")
     text_to_check = "1 item"
     content = context.driver.page_source
@@ -30,9 +30,9 @@ def verify_cart_is_empty(context):
 
 
 @Then('Verify “Your cart is empty” message is shown')
-def verify_cart_is_empty(context):
-    context.driver.find_element(By.XPATH, "//h1[contains(@class, 'Heading')]")
-#    sleep(5)
-
+def verify_cart_empty(context):
+    context.app.cart_page.verify_cart_empty()
+#    context.driver.find_element(By.XPATH, "//h1[contains(@class, 'Heading')]")
+    sleep(3)
 
 #    context.driver.wait.until(EC.element_to_be_clickable((By.NAME, '')))

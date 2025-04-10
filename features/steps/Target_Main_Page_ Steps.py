@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions
 from behave import Given, When, Then
 from time import sleep
 
@@ -23,42 +23,42 @@ def search_for_target(context):
 
 @When('Click on Add to cart icon')
 def add_to_cart(context):
-    context.driver.find_element(By.XPATH, "//button[contains(@aria-label, 'Add to cart')]").click()
- #   sleep(5)
+   context.app.main_page.add_to_cart()
+#   sleep(5)
 
 
 @When('Click on Add to cart icon on side')
 def add_to_cart_2nd_page(context):
-    context.driver.find_element(By.CSS_SELECTOR, "[data-test='modal-drawer-heading']").click()
-#    sleep(5)
+    context.app.side_page.add_to_cart_side()
+#    sleep(1)
 
 
 @When('Click on Sign-In icon')
 def sign_in_page(context):
-    context.driver.find_element(By.XPATH, "//a[@aria-label='Account, sign in']").click()
+    context.app.header.sign_in_button()
 #    sleep(5)
 
 
 @When('Click on Second Sign-In icon')
 def sign_in_2nd_page(context):
-    context.driver.find_element(By.XPATH, "//button[@data-test='accountNav-signIn']").click()
+    context.app.side_page.sign_in_side()
 #    sleep(5)
 
 @When('Click on View Cart icon')
 def view_cart_2nd_page(context):
-    context.driver.find_element(By.CSS_SELECTOR, "[href='/cart']").click()
-#    sleep(5)
+    context.app.side_page.view_cart_side_page()
+#    sleep(2)
 
-@Then('Verify “Sign into your Target account” message is shown')
+@Then('Verify “Sign in or create account” message is shown')
 def verify_sign_in_page(context):
-    context.driver.find_element(By.XPATH, "//h1[contains(@class, 'Heading')]")
-#    sleep(5)
+    context.app.header.verify_signin_page()
+    sleep(2)
 
 
 @Then('Verify “Added to Cart” message is shown on side page')
 def verify_add_to_cart(context):
-    context.driver.find_element(By.CSS_SELECTOR, "[class*='sc-cd7ce3f4-0']")
-#    sleep(5)
+    context.app.side_page.item_added_side()
+#    sleep(2)
 
 #    context.driver.wait.until(EC.element_to_be_clickable((By.NAME, '')))
 
