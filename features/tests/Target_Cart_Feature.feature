@@ -12,7 +12,7 @@ Scenario: Target Cart Functionality
   When Click on View Cart icon
   Then Verify item added to cart
 
-# HW-6
+# HW-6 Updated
 Scenario: Verify “Your cart is empty” message is shown
   # Enter Steps Here
   Given Open Target Main Page

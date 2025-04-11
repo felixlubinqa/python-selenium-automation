@@ -25,11 +25,10 @@ def verify_cart_function(context):
     context.app.cart_page.verify_cart_function()
 #    sleep(5)
 
-
+# HW-6 Updated
 @Then('Verify “Your cart is empty” message is shown')
 def verify_cart_empty(context):
     context.app.cart_page.verify_cart_empty()
-#    context.driver.find_element(By.XPATH, "//h1[contains(@class, 'Heading')]")
     sleep(3)
 
 #    context.driver.wait.until(EC.element_to_be_clickable((By.NAME, '')))
