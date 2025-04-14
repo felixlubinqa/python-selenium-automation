@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from Pages.base_page import Page
+from time import sleep
 
 class CartPage(Page):
     CART_EMPTY_MSG = (By.CSS_SELECTOR, "[data-test='boxEmptyMsg']")
@@ -10,6 +11,7 @@ class CartPage(Page):
         self.verify_text('Your cart is empty', *self.CART_EMPTY_MSG)
 
     def verify_cart_function(self):
+        sleep(5)
         self.find_element(*self.OBJECT_IN_CART)
 
         # actual_result = self.find_element(*self.CART_EMPTY_MSG).text

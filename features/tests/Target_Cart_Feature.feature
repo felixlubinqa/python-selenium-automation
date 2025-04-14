@@ -2,10 +2,12 @@
 Feature: Target Cart Related Features
   # Used for functionality of Cart on Target.com
 
-  #HW-7
+  #HW-7 4/13 Update
 Scenario: Target Cart Functionality
   # Enter steps here
   Given Open Target Main Page
+  When Input tea into search field
+  When Click on search icon
   When Click on Add to cart icon
   When Click on Add to cart icon on side
   Then Verify “Added to Cart” message is shown on side page

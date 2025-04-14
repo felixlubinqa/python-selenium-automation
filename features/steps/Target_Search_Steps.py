@@ -17,7 +17,7 @@ SEARCH_SUBMIT = (By.XPATH, "//button[@data-test='@web/Search/SearchButton']")
 def input_search(context, search_word):
     search = context.driver.find_element(*SEARCH_INPUT)
     search.clear()
-    search.send_keys("tea")
+    search.send_keys(search_word)
     sleep(2)
 
 
@@ -29,5 +29,5 @@ def click_search_icon(context):
 
 @then('Verify correct search results shown for {expected_text}')
 def verify_search_results(context, expected_text):
-    context.app.search_results.verify_search()
+    context.app.search_results.verify_search(expected_text)
     sleep(1)

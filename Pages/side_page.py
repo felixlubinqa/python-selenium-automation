@@ -4,7 +4,7 @@ from Pages.base_page import Page
 
 class SidePage(Page):
     SIGN_IN_SIDE = (By.XPATH, "//button[@data-test='accountNav-signIn']")
-    SIDE_CART_ADD = (By.XPATH, "//button[@id='addToCartButtonOrTextIdFor89120997'][1]")
+    SIDE_CART_ADD = (By.CSS_SELECTOR, '[data-test="orderPickupButton"]')
     CART_ITEM_ADDED = (By.XPATH, "//span[contains(text(), 'Added to cart')]")
     VIEW_CART_SIDE = (By.CSS_SELECTOR, "[href='/cart']")
 
